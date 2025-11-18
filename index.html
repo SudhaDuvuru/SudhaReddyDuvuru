@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sudha Reddy Duvuru | Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-gradient: linear-gradient(180deg, #ffe5f0 0%, #ffe9d6 40%, #ffffff 100%);
+      --primary: #ff7aa2;
+      --primary-dark: #e25d86;
+      --accent: #ffb56b;
+      --text-dark: #222222;
+      --text-muted: #555555;
+      --card-bg: #ffffff;
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.08);
+      --radius-xl: 24px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: var(--bg-gradient);
+      color: var(--text-dark);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    /* NAVBAR */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      background: rgba(255, 255, 255, 0.7);
+      border-bottom: 1px solid rgba(255, 182, 193, 0.3);
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--primary-dark);
+    }
+
+    .logo span {
+      color: #333;
+      font-weight: 500;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 22px;
+      font-size: 0.95rem;
+    }
+
+    nav a {
+      position: relative;
+      padding-bottom: 4px;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.25s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 70px 20px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 26px;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 75vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      background: rgba(255, 122, 162, 0.12);
+      color: var(--primary-dark);
+      margin-bottom: 12px;
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--primary);
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      margin-bottom: 10px;
+    }
+
+    .hero h1 span {
+      color: var(--primary-dark);
+    }
+
+    .hero-tagline {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .typed-line {
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--primary-dark);
+      margin-bottom: 22px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 9px 18px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: white;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .btn-outline:hover {
+      background: #fff3f7;
+      transform: translateY(-1px);
+    }
+
+    .hero-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .hero-meta span {
+      margin-right: 12px;
+    }
+
+    .hero-photo-wrap {
+      justify-self: center;
+    }
+
+    .hero-photo {
+      width: 260px;
+      height: 260px;
+      border-radius: 30px;
+      object-fit: cover;
+      box-shadow: 0 22px 45px rgba(255, 122, 162, 0.35);
+      border: 4px solid #fff7fb;
+    }
+
+    /* CARDS */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius-xl);
+      padding: 18px 20px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .pill {
+      display: inline-block;
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #fff5f9;
+      color: var(--primary-dark);
+      margin-bottom: 10px;
+    }
+
+    .edu-logos {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .edu-logos img {
+      height: 52px;
+      width: auto;
+    }
+
+    .card small {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 16px;
+    }
+
+    .skill-item {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 18px;
+      padding: 12px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    .skill-item img {
+      height: 40px;
+      margin-bottom: 6px;
+    }
+
+    /* PROJECTS & EXPERIENCE */
+    .card ul {
+      padding-left: 18px;
+      font-size: 0.85rem;
+    }
+
+    .card ul li {
+      margin-bottom: 6px;
+    }
+
+    .tag-row {
+      margin-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag {
+      font-size: 0.7rem;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #fff1e1;
+      color: #b76822;
+    }
+
+    /* CONTACT */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .contact-item span.label {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .contact-item span.value {
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      padding: 22px 10px 30px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 820px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: left;
+      }
+
+      .hero-photo-wrap {
+        order: -1;
+      }
+
+      .hero-photo {
+        width: 210px;
+        height: 210px;
+      }
+
+      nav ul {
+        display: none; /* keep it simple on mobile for now */
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <header>
+    <div class="nav-container">
+      <div class="logo">Sudha <span>Reddy Duvuru</span></div>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="badge">
+            <span class="badge-dot"></span>
+            Open to Data / Business Analyst roles
+          </div>
+          <h1>Hi, I'm <span>Sudha</span></h1>
+          <p class="hero-tagline">
+            Data analyst with a marketing + analytics background, turning messy data into clean, decision-ready stories.
+          </p>
+          <p class="typed-line">
+            I am a <span id="typed-role"></span>
+          </p>
+
+          <div class="hero-buttons">
+            <a href="https://www.linkedin.com/in/sudha-reddy-duvuru-b20377168/" target="_blank" class="btn btn-primary">
+              🔗 LinkedIn
+            </a>
+            <a href="https://github.com/SudhaDuvuru" target="_blank" class="btn btn-outline">
+              💻 GitHub
+            </a>
+            <a href="SudhaReddyDuvuru.pdf" target="_blank" class="btn btn-outline">
+              📄 Download Résumé
+            </a>
+          </div>
+
+          <div class="hero-meta">
+            <span>📍 Based in USA (open to relocate)</span>
+            <span>🎯 Focus: Analytics, BI, ML</span>
+          </div>
+        </div>
+
+        <div class="hero-photo-wrap">
+          <!-- make sure the file name matches exactly: profile.JPG -->
+          <img src="profile.JPG" alt="Sudha Reddy Duvuru" class="hero-photo" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About</h2>
+      <p class="section-subtitle">
+        Business + analytics + real-world experience. I like solving messy, ambiguous problems with clean data stories.
+      </p>
+
+      <div class="card-grid">
+        <div class="card">
+          <span class="pill">Who I am</span>
+          <h3>Data & Business Analyst</h3>
+          <p style="font-size:0.9rem;">
+            I completed my <b>Master’s in Analytics</b> at Northeastern University and a <b>BBA (Marketing & Finance)</b> at
+            Osmania University. I’ve worked on tax analytics at ADP, created dashboards for my family business, and built
+            multiple ML-driven academic projects.
+          </p>
+        </div>
+
+        <div class="card">
+          <span class="pill">What I do</span>
+          <h3>Turning raw data into decisions</h3>
+          <ul>
+            <li>Cleaning & modeling data in Python / SQL.</li>
+            <li>Building dashboards in Power BI & Tableau.</li>
+            <li>Designing predictive models for churn, risk & forecasting.</li>
+            <li>Explaining results in plain English to non-technical people.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <span class="pill">What I want next</span>
+          <h3>Impact + ownership</h3>
+          <p style="font-size:0.9rem;">
+            I’m looking for roles where I can own analytics problems end-to-end – from asking the right questions,
+            to building the data pipelines, to presenting insights that change how the business operates.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="container">
+      <h2 class="section-title">Education</h2>
+      <p class="section-subtitle">A mix of business thinking and analytical depth.</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <div class="edu-logos">
+            <img src="neu.png" alt="Northeastern University logo" />
+          </div>
+          <h3>Northeastern University</h3>
+          <small>Boston, MA</small>
+          <p style="font-size:0.85rem;margin-top:6px;">
+            <b>Master of Professional Studies in Analytics</b><br/>
+            Track: Statistical Modeling & Machine Learning
+          </p>
+          <ul>
+            <li>Predictive Analytics, Data Mining, Risk Analytics.</li>
+            <li>Hands-on with Python, R, SQL, ML models, dashboards.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="edu-logos">
+            <img src="Osmania.png" alt="Osmania University logo" />
+          </div>
+          <h3>St. Mary’s College – Osmania University</h3>
+          <small>Hyderabad, India</small>
+          <p style="font-size:0.85rem;margin-top:6px;">
+            <b>Bachelor of Business Administration</b><br/>
+            Major: Marketing & Finance
+          </p>
+          <ul>
+            <li>Top performer with strong fundamentals in business & strategy.</li>
+            <li>Led projects, NSS/CSI volunteering, and family business support.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="container">
+      <h2 class="section-title">Experience</h2>
+      <p class="section-subtitle">Blending corporate, family business, and project work.</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <span class="pill">ADP – India</span>
+          <h3>Customer Service Analyst – Federal Tax Team</h3>
+          <small>Payroll & Tax Analytics | US Clients</small>
+          <ul>
+            <li>Handled IRS forms 940/944, investigated discrepancies, and resolved payroll tax issues for US businesses.</li>
+            <li>Used Excel & internal tools to analyze large volumes of tax/payment data for accuracy.</li>
+            <li>Collaborated with cross-functional teams to close tickets with clear, data-backed explanations.</li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">Tax Analytics</span>
+            <span class="tag">Customer Insights</span>
+            <span class="tag">Excel</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="pill">Copier Care Center</span>
+          <h3>Business & Data Support (Family Business)</h3>
+          <small>Hyderabad, India</small>
+          <ul>
+            <li>Tracked service calls, revenue, and repeat customers in spreadsheets and small dashboards.</li>
+            <li>Analyzed which locations & clients were most profitable and where service delays were happening.</li>
+            <li>Helped translate data into simple decisions: pricing, technician routing, and follow-up strategy.</li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">SMB Analytics</span>
+            <span class="tag">Operations</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title">Skills</h2>
+      <p class="section-subtitle">Tools I actually use to get work done.</p>
+
+      <div class="skills-grid">
+        <div class="skill-item">
+          <img src="python.png" alt="Python logo" />
+          <div>Python</div>
+          <small>Pandas, NumPy, scikit-learn</small>
+        </div>
+        <div class="skill-item">
+          <img src="sql.png" alt="SQL logo" />
+          <div>SQL</div>
+          <small>Queries, joins, views</small>
+        </div>
+        <div class="skill-item">
+          <img src="mysql.png" alt="MySQL logo" />
+          <div>MySQL</div>
+          <small>Relational modeling</small>
+        </div>
+        <div class="skill-item">
+          <img src="Postgres.png" alt="PostgreSQL logo" />
+          <div>PostgreSQL</div>
+          <small>Analytics queries</small>
+        </div>
+        <div class="skill-item">
+          <img src="powerbi.png" alt="Power BI logo" />
+          <div>Power BI</div>
+          <small>Interactive dashboards</small>
+        </div>
+        <div class="skill-item">
+          <img src="Tableau.jpeg" alt="Tableau logo" />
+          <div>Tableau</div>
+          <small>Visual storytelling</small>
+        </div>
+        <div class="skill-item">
+          <img src="excel.png" alt="Excel logo" />
+          <div>Excel</div>
+          <small>Pivot tables, formulas</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+      <p class="section-subtitle">A few examples of how I use data to answer real questions.</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <span class="pill">Predictive Analytics</span>
+          <h3>Customer Churn Prediction – Subscription Service</h3>
+          <ul>
+            <li>Built models to predict which customers are likely to cancel, using demographics, usage and payment history.</li>
+            <li>Compared logistic regression, decision tree and random forest; selected the best based on AUC/F1.</li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">Python</span>
+            <span class="tag">ML</span>
+            <span class="tag">Churn</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="pill">Finance & Markets</span>
+          <h3>Stock Market & Event-Driven Analytics</h3>
+          <ul>
+            <li>Analyzed how global events and sentiment affect S&P 500 & ADP stock behavior.</li>
+            <li>Used technical indicators (EMA, Bollinger Bands, RSI) and event data to explore patterns.</li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">Time Series</span>
+            <span class="tag">Pandas</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="pill">Social Impact</span>
+          <h3>Global Climate Anxiety Index (Concept)</h3>
+          <ul>
+            <li>Designed a framework to track emotional responses to climate events using NLP & disaster data.</li>
+            <li>Goal: make the human side of climate change visible for NGOs, media and policy makers.</li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">NLP</span>
+            <span class="tag">Dashboards</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <p class="section-subtitle">If you think my background fits your team, I’d love to talk.</p>
+
+      <div class="contact-grid">
+        <div class="card contact-item">
+          <span class="label">Email</span>
+          <span class="value">duvurusudhabula@gmail.com</span>
+        </div>
+
+        <div class="card contact-item">
+          <span class="label">LinkedIn</span>
+          <span class="value">
+            <a href="https://www.linkedin.com/in/sudha-reddy-duvuru-b20377168/" target="_blank">
+              linkedin.com/in/sudha-reddy-duvuru-b20377168
+            </a>
+          </span>
+        </div>
+
+        <div class="card contact-item">
+          <span class="label">GitHub</span>
+          <span class="value">
+            <a href="https://github.com/SudhaDuvuru" target="_blank">github.com/SudhaDuvuru</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Sudha Reddy Duvuru · Built with HTML, CSS & a bit of JS
+  </footer>
+
+  <!-- Typed.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script>
+    // typed effect in hero
+    var typed = new Typed("#typed-role", {
+      strings: [
+        "Data Analyst",
+        "Business Analyst",
+        "Machine Learning Enthusiast",
+        "Data Storyteller"
+      ],
+      typeSpeed: 60,
+      backSpeed: 35,
+      backDelay: 1500,
+      loop: true,
+    });
+
+    // footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
